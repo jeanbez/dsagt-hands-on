@@ -7,6 +7,23 @@ This exercise starts where most machine-learning projects start: with raw instru
 > [!IMPORTANT]
 > **There are no prompts to paste.** You are the scientist who owns this data; the agent is your assistant. Each mission says what you need, what to deliver, and how a reviewer will judge it. How you ask for it is up to you. The data carry the defects a real multi-lab campaign does, and none is announced.
 
+## <img src="assets/icons/list-unordered.svg" width="22" height="22" alt=""> Contents
+
+- [Missions at a Glance](#-missions-at-a-glance)
+- [What Is Real and What Is Made Up](#-what-is-real-and-what-is-made-up)
+- [Prerequisites](#-prerequisites)
+- [Setup](#-setup)
+- [What the Labs Sent](#-what-the-labs-sent)
+- [How to Work](#-how-to-work)
+- Missions
+  - [Mission 1. From a Raw File to a Table](#-mission-1-from-a-raw-file-to-a-table)
+  - [Mission 2. Make It Trustworthy](#-mission-2-make-it-trustworthy)
+  - [Mission 3. A Training Table That Is Fair and Safe to Share](#-mission-3-a-training-table-that-is-fair-and-safe-to-share)
+  - [Mission 4. Train, and Show That Curation Helped](#-mission-4-train-and-show-that-curation-helped)
+  - [Mission 5. Hand-Off](#-mission-5-hand-off)
+- [Review](#-review)
+- [Cleanup](#-cleanup)
+
 ## <img src="assets/icons/milestone.svg" width="22" height="22" alt=""> Missions at a Glance
 
 | | Mission | You Deliver | DSAgt Parts You Will Use |
