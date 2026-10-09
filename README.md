@@ -113,7 +113,7 @@ Run the script with the Python that has dsagt installed.
 > - The documentation becomes a knowledge-base collection; indexing it takes a minute or two the first time.
 > - The skill search returns candidates, and you decide whether any fits.
 > - The readiness check refuses the HDF5 file as it is. That is a finding, not an error.
-> - `data/cycles_raw.csv` has about 115,000 rows and 18 columns, and a first quality report gives completeness, duplicity, and outlier scores.
+> - `data/cycles_raw.csv` has about 115,000 rows and 18 columns (the attributes of all cells together: not every cell has every attribute), and a first quality report gives completeness, duplicity, and outlier scores.
 > - The scores look good. Keep reading.
 
 ## <img src="assets/icons/shield-check.svg" width="22" height="22" alt=""> Mission 2. Make It Trustworthy
@@ -222,7 +222,7 @@ Run the script with the Python that has dsagt installed.
 - `audit/pipeline.sh`: the pipeline from `data/cycler_raw.h5` to the model, generated from the recorded runs, not written by hand;
 - the readiness record: every data-quality and readiness measurement of the session, in the order it ran, with its file and values;
 - `skills/battery-curation/`: a skill the labs can follow on their next campaign's file to get from the raw HDF5 to `cycles_clean.csv`, using the codes this session registered;
-- `audit/session_report.md`: what the session cost and where it went, from its traces: tokens in and out, errors, the number of agent turns, and which mission used the most.
+- `audit/session_report.md`: what the session cost and where it went, from its traces: tokens in and out, errors, the number of agent turns, and which part of the session used the most.
 
 > [!TIP]
 > **What to Expect:**
@@ -231,6 +231,7 @@ Run the script with the Python that has dsagt installed.
 > - The readiness record has one row per measurement, from the raw file to the training table.
 > - `dsagt info` lists `battery-curation` among the project's skills.
 > - `dsagt traces` opens the MLflow viewer on the session's traces: one per agent turn and one per code run. Most input tokens are the agent re-reading its own context.
+> - `dsagt info` splits the totals by session, not by mission; if you ran every mission in one session, it shows a single row. The trace timestamps in `dsagt traces` show which part of the session used the most.
 
 ---
 

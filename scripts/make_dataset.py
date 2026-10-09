@@ -68,7 +68,7 @@ held at 30 degC.
 
 A cell reaches end of life at the first cycle whose discharge capacity is
 below 80 % of its nominal capacity; that cycle number is its cycle life. Labs
-keep cycling a cell for a few percent of its life past that point and then
+keep cycling a cell for about 10 % of its life past that point and then
 stop the test. A test that stops before end of life is recorded with
 `test_status = aborted`, and the cell has no cycle life.
 
@@ -84,6 +84,7 @@ declare the units the lab's software wrote.
 
 ## Data policy
 
+The Fast-Charge Cycle-Life Consortium publishes the campaign's datasets.
 Operator names are personal data under the consortium agreement. They stay
 inside the consortium and are removed from any dataset shared outside it.
 """,
