@@ -25,7 +25,7 @@ campaign protocol and one note per lab.  The documents are as made up as the
 data; they explain the defects a careful reader can find in them, and lab C's
 notes are the only place that says its nominal capacity is in mAh.
 
-    python make_dataset.py <project_dir>  # writes data/cycler_raw.h5 and docs/*.md
+    python make_dataset.py <project_dir>  # writes data/cycles_raw.h5 and docs/*.md
 """
 
 from __future__ import annotations
@@ -185,7 +185,7 @@ def build(out_dir: Path) -> Path:
     rng = np.random.default_rng(SEED)
     curve_rng = np.random.default_rng(SEED + 1)
     out_dir.mkdir(parents=True, exist_ok=True)
-    path = out_dir / "cycler_raw.h5"
+    path = out_dir / "cycles_raw.h5"
     serial = 0
     with h5py.File(path, "w") as f:
         f.attrs["campaign"] = "Fast-charge cycle-life study, 3 labs"

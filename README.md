@@ -36,7 +36,7 @@ This exercise starts where most machine-learning projects start: with raw instru
 
 ## <img src="assets/icons/alert.svg" width="22" height="22" alt=""> What Is Real and What Is Made Up
 
-**Made up.** Every value in `cycler_raw.h5` comes from a seeded degradation model, not from a cycler. The consortium, the three labs, the operators (the names are invented; any resemblance to a real person is a coincidence), the campaign documents, and the defects and their rates were all written for this exercise. The model you train says nothing about real batteries.
+**Made up.** Every value in `cycles_raw.h5` comes from a seeded degradation model, not from a cycler. The consortium, the three labs, the operators (the names are invented; any resemblance to a real person is a coincidence), the campaign documents, and the defects and their rates were all written for this exercise. The model you train says nothing about real batteries.
 
 **Real.** The prediction task, the end-of-life convention (80 % of nominal capacity), the cell type (1.1 Ah LFP/graphite, fast-charged), and the idea of predicting cycle life from early-cycle features follow Severson et al. (2019). The kinds of defects are ones real campaigns have: loggers that write a sentinel for a missing reading, buffers replayed after a restart, loose thermocouples, sites that export different units, tests stopped early, and personal names in metadata. DSAgt, AIDRIN, scikit-learn, and the Genesis datacard are the real tools, and what they report about the data is real measurement of these made-up values.
 
@@ -68,11 +68,11 @@ dsagt start battery-life
 Run the script with the Python that has dsagt installed.
 
 > [!NOTE]
-> **Expect:** the script prints two paths, `data/cycler_raw.h5` (about 200 MB) and `docs/`, in a second or two, and your agent opens in the project directory with dsagt connected.
+> **Expect:** the script prints two paths, `data/cycles_raw.h5` (about 200 MB) and `docs/`, in a second or two, and your agent opens in the project directory with dsagt connected.
 
 ## <img src="assets/icons/package.svg" width="22" height="22" alt=""> What the Labs Sent
 
-- **`data/cycler_raw.h5`** (about 200 MB): one group per cell, `/cells/BC-0001` to `/cells/BC-0120`. Each group holds eight per-cycle 1-D datasets (`cycle_index`, `timestamp`, `discharge_capacity`, `charge_capacity`, `avg_voltage`, `max_temperature`, `internal_resistance`, `ambient_humidity`) and one 2-D dataset, `discharge_curve`: each cycle's discharge curve, the capacity delivered at the 400 voltages in the file's root `voltage_grid`. The group's attributes describe the cell and the test. Cells ran for different numbers of cycles, so the groups have different lengths.
+- **`data/cycles_raw.h5`** (about 200 MB): one group per cell, `/cells/BC-0001` to `/cells/BC-0120`. Each group holds eight per-cycle 1-D datasets (`cycle_index`, `timestamp`, `discharge_capacity`, `charge_capacity`, `avg_voltage`, `max_temperature`, `internal_resistance`, `ambient_humidity`) and one 2-D dataset, `discharge_curve`: each cycle's discharge curve, the capacity delivered at the 400 voltages in the file's root `voltage_grid`. The group's attributes describe the cell and the test. Cells ran for different numbers of cycles, so the groups have different lengths.
 - **`docs/`**: the campaign protocol and a note from each lab.
 
 ## <img src="assets/icons/light-bulb.svg" width="22" height="22" alt=""> How to Work
@@ -93,7 +93,7 @@ Run the script with the Python that has dsagt installed.
 **Action Items:**
 
 - [ ] Make the labs' documentation searchable from the session.
-- [ ] Get an assessment of `data/cycler_raw.h5`: its structure, and whether it is ready to train on, citing the documentation.
+- [ ] Get an assessment of `data/cycles_raw.h5`: its structure, and whether it is ready to train on, citing the documentation.
 - [ ] Before any converter is written, have the agent search the existing skills for one that already does the job.
 - [ ] Get the file turned into `data/cycles_raw.csv`.
 - [ ] Get the table's data quality measured.
@@ -219,7 +219,7 @@ Run the script with the Python that has dsagt installed.
 **Deliver**
 
 - `data/genesis_datacard_features.md`: a Level 1 (discoverability) Genesis datacard for `data/features.csv` that carries the readiness findings; its validation is a recorded run with no findings;
-- `audit/pipeline.sh`: the pipeline from `data/cycler_raw.h5` to the model, generated from the recorded runs, not written by hand;
+- `audit/pipeline.sh`: the pipeline from `data/cycles_raw.h5` to the model, generated from the recorded runs, not written by hand;
 - the readiness record: every data-quality and readiness measurement of the session, in the order it ran, with its file and values;
 - `skills/battery-curation/`: a skill the labs can follow on their next campaign's file to get from the raw HDF5 to `cycles_clean.csv`, using the codes this session registered;
 - `audit/session_report.md`: what the session cost and where it went, from its traces: tokens in and out, errors, the number of agent turns, and which part of the session used the most.

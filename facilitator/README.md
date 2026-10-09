@@ -4,7 +4,7 @@ The answers to the [battery-cycling exercise](../README.md): for each mission, a
 
 ## Tools
 
-- **Checkpoints.** `facilitator/scripts/reference_pipeline.py <project>/data` writes `cycles_raw.csv`, `cycles_clean.csv`, `features.csv`, and `features_raw.csv` from `cycler_raw.h5`, and prints the reference model scores. A group that fell behind copies the file the next mission starts from.
+- **Checkpoints.** `facilitator/scripts/reference_pipeline.py <project>/data` writes `cycles_raw.csv`, `cycles_clean.csv`, `features.csv`, and `features_raw.csv` from `cycles_raw.h5`, and prints the reference model scores. A group that fell behind copies the file the next mission starts from.
 - **Dry run.** The reference prompts below run headless, the way a participant's session would go if they asked exactly this. The driver is `tests/headless_usecases.py` in a checkout of the [dsagt repository](https://github.com/AI-ModCon/dsagt); `HANDS_ON` is this repository's directory, and `--agent` is `claude` or `codex`:
 
   ```bash
@@ -36,13 +36,13 @@ The answers to the [battery-cycling exercise](../README.md): for each mission, a
 
 ```text
 The labs sent documentation with the data, in docs/. Make it searchable in this session. Then
-describe the structure of data/cycler_raw.h5 and tell me whether it is ready to train a model on,
+describe the structure of data/cycles_raw.h5 and tell me whether it is ready to train a model on,
 citing the documentation where it explains something in the data. Don't change anything yet.
 ```
 
 ```text
 Before writing anything, check whether an existing skill already turns this kind of HDF5 file into
-a table, and tell me what you found. If none fits, turn data/cycler_raw.h5 into one table,
+a table, and tell me what you found. If none fits, turn data/cycles_raw.h5 into one table,
 data/cycles_raw.csv: one row per cycle, with cell_id, the eight per-cycle channels, and every group
 attribute as columns; the discharge curves stay in the HDF5 file. Copy the values as they are: no
 cleaning, no unit conversion, no attribute left out. Make the conversion a
@@ -178,7 +178,7 @@ the card with the skill's registered validator and fix what it reports.
 ```
 
 ```text
-Generate the pipeline from data/cycler_raw.h5 to the model as a bash script from the recorded runs,
+Generate the pipeline from data/cycles_raw.h5 to the model as a bash script from the recorded runs,
 not by hand, and save it to audit/pipeline.sh.
 ```
 

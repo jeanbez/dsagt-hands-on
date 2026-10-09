@@ -13,7 +13,7 @@ notes quote.  It writes, under ``<data_dir>``:
 
 and prints the 5-fold cross-validated scores of mission 4's model on both.
 
-    python reference_pipeline.py <data_dir>   # reads <data_dir>/cycler_raw.h5
+    python reference_pipeline.py <data_dir>   # reads <data_dir>/cycles_raw.h5
 """
 
 from __future__ import annotations
@@ -110,7 +110,7 @@ def cv_scores(table: pd.DataFrame) -> tuple[float, float]:
 
 
 def main(data_dir: Path) -> None:
-    raw = flatten(data_dir / "cycler_raw.h5")
+    raw = flatten(data_dir / "cycles_raw.h5")
     clean = curate(raw)
     feats, feats_raw = features(clean), features(raw)
     raw.to_csv(data_dir / "cycles_raw.csv", index=False)
